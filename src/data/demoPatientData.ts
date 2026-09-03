@@ -13,7 +13,7 @@ export const DEMO_PATIENT: DemoPatientProfile = {
   familyCaregiverName: 'Sunita Baruah (Daughter)',
   familyCaregiverRelation: 'Daughter & Primary Caregiver',
   clinicianName: 'Dr. Bhupen Sarma, MD (Geriatric Care)',
-  careCenter: 'GMCH Geriatric Memory Outpost & Tezpur Sub-divisional Health Center',
+  careCenter: 'Demo NER Community Memory Support Network, Tezpur',
   baselineDate: '2026-03-15',
   lifeHistory: {
     childhoodPlace: 'Bishwanath Ghat on the banks of Brahmaputra',

@@ -167,3 +167,16 @@ export interface DemoPatientProfile {
     favoriteTraditions: string[];
   };
 }
+
+export interface AshaTelemetryRecord {
+  id: string;
+  timestamp: string;
+  cardTitle: string;
+  hesitationTimeMs: number;
+  vocalTremorJitter: number; // e.g. 1.24% (normal < 1.5%)
+  cognitiveStabilityScore: number; // 0-100%
+  voiceUsed: boolean;
+  offlineStored: boolean;
+  notes?: string;
+}
+

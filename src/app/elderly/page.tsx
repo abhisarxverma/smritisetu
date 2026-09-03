@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { useApp } from '../../context/AppContext';
-import TherapeuticFeed from '../../components/elderly/TherapeuticFeed';
+import PacedReminiscenceStream from '../../components/elderly/PacedReminiscenceStream';
 
 export default function ElderlyPage() {
   const { setCurrentView } = useApp();
@@ -11,5 +11,5 @@ export default function ElderlyPage() {
     setCurrentView('elderly');
   }, [setCurrentView]);
 
-  return <TherapeuticFeed />;
+  return <PacedReminiscenceStream />;
 }

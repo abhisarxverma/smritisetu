@@ -22,7 +22,7 @@ export default function ClinicalReportModal({ isOpen, onClose }: ClinicalReportM
           <div>
             <div className="flex items-center space-x-2">
               <span className="text-xs px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono font-semibold">
-                CLINICAL BRIEF #GMCH-NER-2026-088
+                SUPPORTIVE REVIEW BRIEF #DEMO-NER-2026-088
               </span>
               <span className="text-xs text-stone-400">Date: {new Date().toLocaleDateString()}</span>
             </div>
@@ -38,7 +38,7 @@ export default function ClinicalReportModal({ isOpen, onClose }: ClinicalReportM
           </button>
         </div>
 
-        {/* Patient Clinical Demographics */}
+        {/* Patient Demo Demographics */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 my-5 p-4 rounded-2xl bg-stone-800/80 text-xs border border-stone-700/60">
           <div>
             <span className="text-stone-400 block">Patient Name:</span>
@@ -53,7 +53,7 @@ export default function ClinicalReportModal({ isOpen, onClose }: ClinicalReportM
             <span className="font-bold text-stone-200">{patient.location}</span>
           </div>
           <div>
-            <span className="text-stone-400 block">Attending Clinician:</span>
+            <span className="text-stone-400 block">Reviewing Professional:</span>
             <span className="font-bold text-indigo-300">{patient.clinicianName}</span>
           </div>
         </div>
@@ -83,10 +83,10 @@ export default function ClinicalReportModal({ isOpen, onClose }: ClinicalReportM
         {/* Clinician Summary */}
         <div className="p-4 rounded-2xl bg-indigo-950/30 border border-indigo-700/50 text-xs space-y-2 mb-6">
           <h4 className="font-bold text-indigo-200 uppercase tracking-wider text-[11px]">
-            Clinical Impression & Change Telemetry:
+            Supportive Summary & Change Telemetry:
           </h4>
           <p className="text-stone-200 leading-relaxed">
-            Patient demonstrates sustained engagement with bounded 12–15 minute daily sessions. Autobiographical memory and procedural sequence memory (traditional tea preparation) remain remarkably robust. Mild latency variance in orientation domain (+1.2s hesitation) noted; recommend ongoing supportive environmental orientation without pharmacological alteration at this stage.
+            Demo profile shows sustained engagement with bounded 12-15 minute daily sessions. Autobiographical memory and familiar sequence activities are strong in this sample data. A mild orientation hesitation change is visible; consider professional review if this pattern persists across real sessions. This is not diagnostic or treatment guidance.
           </p>
         </div>
 
@@ -105,10 +105,10 @@ export default function ClinicalReportModal({ isOpen, onClose }: ClinicalReportM
 
         {/* Actions */}
         <div className="flex items-center justify-between pt-4 border-t border-stone-800 text-xs">
-          <span className="text-stone-400">ABDM & Ayushman Bharat Standard FHIR JSON Ready</span>
+          <span className="text-stone-400">Future ABDM-aligned export concept; no real ABHA or health record is created.</span>
           <div className="flex items-center space-x-2">
             <button
-              onClick={() => alert('Clinical Report downloaded in compliant FHIR/PDF format.')}
+              onClick={() => alert('Demo supportive brief export prepared. This prototype does not create a certified clinical record.')}
               className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold flex items-center space-x-1.5"
             >
               <Download className="w-4 h-4" />

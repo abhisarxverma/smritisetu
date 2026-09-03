@@ -5,8 +5,9 @@ import { useApp } from '../../context/AppContext';
 import { WifiOff, RefreshCw, CheckCircle2, HardDrive } from 'lucide-react';
 
 export default function OfflineBanner() {
-  const { isOffline, toggleOfflineMode, syncQueue, forceSyncQueue } = useApp();
+  const { isOffline, toggleOfflineMode, syncQueue, forceSyncQueue, currentView } = useApp();
 
+  if (currentView === 'elderly') return null;
   if (!isOffline && syncQueue.length === 0) return null;
 
   return (
@@ -38,7 +39,7 @@ export default function OfflineBanner() {
               </div>
               <p className="text-[11px] text-amber-200/80">
                 {isOffline
-                  ? 'Core cognitive feed, audio prompts, and memory vault remain 100% accessible offline via local device caching.'
+                  ? 'Core cognitive feed, saved prompts, and memory vault remain available offline via local device caching.'
                   : 'All session telemetry and caregiver notes securely synchronized.'}
               </p>
             </div>

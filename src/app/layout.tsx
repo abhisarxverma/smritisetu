@@ -4,6 +4,7 @@ import "./globals.css";
 import { AppProvider } from "../context/AppContext";
 import NavigationBar from "../components/common/NavigationBar";
 import OfflineBanner from "../components/common/OfflineBanner";
+import ServiceWorkerRegistration from "../components/common/ServiceWorkerRegistration";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,8 @@ export const metadata: Metadata = {
     "Viksit Bharat 2047"
   ],
   authors: [{ name: "SmritiSetu SIH 2026 Team" }]
+  ,
+  manifest: "/manifest.json"
 };
 
 export default function RootLayout({
@@ -52,6 +55,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-stone-950 text-stone-100 font-sans selection:bg-amber-500 selection:text-stone-950">
         <AppProvider>
+          <ServiceWorkerRegistration />
           <NavigationBar />
           <OfflineBanner />
           <main className="flex-1">

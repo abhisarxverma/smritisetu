@@ -1,0 +1,20 @@
+{
+  "name": "SmritiSetu - Digital Reminiscence Therapy for Northeast India",
+  "short_name": "SmritiSetu",
+  "description": "An offline-first cognitive engagement and memory assistance prototype for elderly people in North-East India.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a192f",
+  "theme_color": "#0a192f",
+  "orientation": "portrait-primary",
+  "categories": ["health", "education", "productivity"],
+  "icons": [
+    {
+      "src": "/globe.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -2,20 +2,18 @@
 
 import React from 'react';
 import { useApp } from '../../context/AppContext';
-import { TRANSLATIONS } from '../../data/translations';
 import { LanguageCode } from '../../data/types';
 import {
   Heart,
+  Home,
   Users,
   Stethoscope,
   BookOpen,
-  Wifi,
-  WifiOff,
   Volume2,
   VolumeX,
-  Sparkles,
-  Home,
-  ShieldCheck
+  Wifi,
+  WifiOff,
+  Sparkles
 } from 'lucide-react';
 
 export default function NavigationBar() {
@@ -27,164 +25,130 @@ export default function NavigationBar() {
     isOffline,
     toggleOfflineMode,
     isAudioMuted,
-    toggleAudioMute,
-    sessionSeconds,
-    fontSizeScale,
-    setFontSizeScale,
-    syncQueue
+    toggleAudioMute
   } = useApp();
 
-  const t = TRANSLATIONS[language] || TRANSLATIONS.en;
-  const elapsedMins = Math.floor(sessionSeconds / 60);
+  // In elderly patient mode, PacedReminiscenceStream provides its own integrated, distraction-free top bar
+  if (currentView === 'elderly') {
+    return null;
+  }
 
+  // Standard Clean Desktop / Tablet Header for Caregiver, Clinician & Landing
   return (
-    <header className="sticky top-0 z-50 bg-stone-900/95 backdrop-blur-md text-stone-100 border-b border-stone-800 shadow-md">
+    <header className="sticky top-0 z-40 bg-stone-950/90 backdrop-blur-md border-b border-stone-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18">
-          {/* Brand Logo & Cultural Identity */}
-          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setCurrentView('landing')}>
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-600 via-amber-500 to-rose-600 flex items-center justify-center shadow-lg shadow-amber-900/30">
-              <Heart className="w-6 h-6 text-white fill-white/80" />
+        <div className="flex items-center justify-between h-16">
+          {/* Brand Wordmark */}
+          <div
+            className="flex items-center space-x-3 cursor-pointer group"
+            onClick={() => setCurrentView('landing')}
+          >
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-600 to-rose-600 flex items-center justify-center shadow-md">
+              <Heart className="w-5 h-5 text-white fill-white/80" />
             </div>
-            <div>
-              <div className="flex items-center space-x-2">
-                <span className="text-xl font-bold tracking-tight text-white font-serif">SmritiSetu</span>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-medium border border-amber-500/30">
-                  স্মৃতি সেতু
-                </span>
-                <span className="hidden md:inline-block text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30">
-                  NER SIH 2026
-                </span>
-              </div>
-              <p className="text-xs text-stone-400 hidden sm:block">
-                AI Cognitive Companion & Therapeutic Stream • North-East India
-              </p>
+            <div className="flex items-baseline space-x-2">
+              <span className="text-xl font-bold tracking-tight text-white font-serif">
+                SmritiSetu
+              </span>
+              <span className="text-xs text-amber-400 font-serif hidden sm:inline">
+                স্মৃতি সেতু
+              </span>
             </div>
           </div>
 
-          {/* Role Navigation Switcher */}
-          <nav className="hidden lg:flex items-center space-x-1 p-1 bg-stone-800/80 rounded-xl border border-stone-700/60">
+          {/* Clean Segmented Navigation */}
+          <nav className="hidden md:flex items-center space-x-1 p-1 bg-stone-900 rounded-2xl border border-stone-800">
             <button
               onClick={() => setCurrentView('landing')}
-              className={`flex items-center space-x-1.5 px-3.5 py-2 rounded-lg text-xs font-medium transition-all ${
+              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                 currentView === 'landing'
-                  ? 'bg-stone-700 text-white shadow-sm'
-                  : 'text-stone-300 hover:text-white hover:bg-stone-700/40'
+                  ? 'bg-stone-800 text-white shadow-sm'
+                  : 'text-stone-400 hover:text-stone-200'
               }`}
             >
-              <Home className="w-3.5 h-3.5" />
-              <span>Platform Story</span>
+              Story & Vision
             </button>
 
             <button
               onClick={() => setCurrentView('elderly')}
-              className={`flex items-center space-x-1.5 px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
-                currentView === 'elderly'
-                  ? 'bg-gradient-to-r from-amber-600 to-rose-600 text-white shadow-md shadow-amber-900/30 ring-1 ring-amber-400/40'
-                  : 'text-amber-300 hover:bg-amber-950/40'
-              }`}
+              className="px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer flex items-center space-x-1.5 text-amber-300 hover:text-white"
             >
-              <Heart className="w-3.5 h-3.5 text-rose-300 fill-rose-300/40" />
-              <span>Aita Mode (Elderly Feed)</span>
-              {currentView === 'elderly' && (
-                <span className="ml-1 px-1.5 py-0.2 bg-white/20 rounded text-[10px] font-mono">
-                  {elapsedMins}m
-                </span>
-              )}
+              <Heart className="w-3.5 h-3.5 fill-amber-300/40 text-amber-300" />
+              <span>Patient Stream</span>
             </button>
 
             <button
               onClick={() => setCurrentView('caregiver')}
-              className={`flex items-center space-x-1.5 px-3.5 py-2 rounded-lg text-xs font-medium transition-all ${
+              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer flex items-center space-x-1.5 ${
                 currentView === 'caregiver'
-                  ? 'bg-teal-700 text-white shadow-sm'
-                  : 'text-teal-300 hover:text-white hover:bg-teal-950/40'
+                  ? 'bg-teal-700 text-white shadow'
+                  : 'text-teal-300 hover:text-white'
               }`}
             >
               <Users className="w-3.5 h-3.5 text-teal-300" />
-              <span>Caregiver Sanctuary</span>
+              <span>Caregiver & ASHA</span>
             </button>
 
             <button
               onClick={() => setCurrentView('clinician')}
-              className={`flex items-center space-x-1.5 px-3.5 py-2 rounded-lg text-xs font-medium transition-all ${
+              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer flex items-center space-x-1.5 ${
                 currentView === 'clinician'
-                  ? 'bg-indigo-700 text-white shadow-sm'
-                  : 'text-indigo-300 hover:text-white hover:bg-indigo-950/40'
+                  ? 'bg-indigo-700 text-white shadow'
+                  : 'text-indigo-300 hover:text-white'
               }`}
             >
               <Stethoscope className="w-3.5 h-3.5 text-indigo-300" />
-              <span>Clinician Portal</span>
+              <span>Clinician</span>
             </button>
 
             <button
               onClick={() => setCurrentView('research')}
-              className={`flex items-center space-x-1.5 px-3 py-2 rounded-lg text-xs font-medium transition-all ${
+              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer flex items-center space-x-1.5 ${
                 currentView === 'research'
-                  ? 'bg-stone-700 text-white shadow-sm'
-                  : 'text-stone-300 hover:text-white hover:bg-stone-700/40'
+                  ? 'bg-stone-800 text-white shadow'
+                  : 'text-stone-400 hover:text-stone-200'
               }`}
             >
               <BookOpen className="w-3.5 h-3.5 text-amber-400" />
-              <span>Research & Policy</span>
+              <span>Research</span>
             </button>
           </nav>
 
-          {/* Accessibility & System Controls */}
-          <div className="flex items-center space-x-2">
-            {/* Language Selector */}
-            <div className="relative">
-              <select
-                aria-label="Select Language"
-                value={language}
-                onChange={(e) => setLanguage(e.target.value as LanguageCode)}
-                className="bg-stone-800 border border-stone-700 text-stone-200 text-xs rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-amber-500 font-medium cursor-pointer"
-              >
-                <option value="en">English (EN)</option>
-                <option value="as">অসমীয়া (Assamese)</option>
-                <option value="hi">हिन्दी (Hindi)</option>
-                <option value="bodo">बड़ो (Bodo Demo)</option>
-                <option value="khasi">Khasi (Demo)</option>
-                <option value="mizo">Mizo (Demo)</option>
-              </select>
-            </div>
-
-            {/* Font Resizer for Elderly Accessibility */}
-            <button
-              onClick={() => setFontSizeScale(fontSizeScale === 1.0 ? 1.25 : fontSizeScale === 1.25 ? 1.4 : 1.0)}
-              title="Adjust Text Size for Accessibility"
-              aria-label="Adjust Text Size"
-              className="p-1.5 rounded-lg bg-stone-800 text-stone-300 hover:text-white border border-stone-700 text-xs font-bold px-2"
+          {/* Right Utility Cluster */}
+          <div className="flex items-center space-x-2.5">
+            {/* Language Selection Pill */}
+            <select
+              aria-label="Language Selector"
+              value={language}
+              onChange={(e) => setLanguage(e.target.value as LanguageCode)}
+              className="bg-stone-900 border border-stone-800 text-stone-200 text-xs rounded-xl px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-amber-500 font-medium cursor-pointer"
             >
-              A{fontSizeScale > 1.0 ? '⁺' : ''}
-            </button>
+              <option value="en">English</option>
+              <option value="as">অসমীয়া</option>
+              <option value="hi">हिन्दी</option>
+              <option value="bodo">बड़ो</option>
+            </select>
 
-            {/* Offline Simulation Toggle */}
+            {/* Offline Simulation Button */}
             <button
               onClick={toggleOfflineMode}
-              title={isOffline ? 'Offline Mode Active (Click to go Online)' : 'Online Mode (Click to test Offline Mode)'}
-              aria-label="Toggle Offline Mode"
-              className={`flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-xs font-medium border transition-all ${
+              aria-label="Toggle Offline Simulation"
+              title={isOffline ? 'Offline Mode Active' : 'Connected to Cloud'}
+              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
                 isOffline
-                  ? 'bg-amber-900/60 border-amber-600 text-amber-200 shadow-sm animate-pulse'
-                  : 'bg-stone-800 border-stone-700 text-emerald-400 hover:bg-stone-700'
+                  ? 'bg-amber-950/80 border-amber-600 text-amber-300 animate-pulse'
+                  : 'bg-stone-900 border-stone-800 text-emerald-400 hover:bg-stone-850'
               }`}
             >
-              {isOffline ? <WifiOff className="w-3.5 h-3.5 text-amber-400" /> : <Wifi className="w-3.5 h-3.5 text-emerald-400" />}
+              {isOffline ? <WifiOff className="w-3.5 h-3.5" /> : <Wifi className="w-3.5 h-3.5" />}
               <span className="hidden sm:inline">{isOffline ? 'Offline' : 'Online'}</span>
-              {isOffline && syncQueue.length > 0 && (
-                <span className="w-4 h-4 rounded-full bg-amber-500 text-stone-900 font-bold text-[9px] flex items-center justify-center">
-                  {syncQueue.length}
-                </span>
-              )}
             </button>
 
-            {/* Audio Feedback Mute Toggle */}
+            {/* Audio Toggle */}
             <button
               onClick={toggleAudioMute}
-              title={isAudioMuted ? 'Sound Muted' : 'Harmonic Chimes Active'}
-              aria-label="Toggle Sound"
-              className="p-1.5 rounded-lg bg-stone-800 text-stone-300 hover:text-white border border-stone-700"
+              aria-label="Toggle Audio Feedback"
+              className="p-2 rounded-xl bg-stone-900 hover:bg-stone-800 text-stone-300 border border-stone-800 transition-colors cursor-pointer"
             >
               {isAudioMuted ? <VolumeX className="w-4 h-4 text-rose-400" /> : <Volume2 className="w-4 h-4 text-emerald-400" />}
             </button>
@@ -192,18 +156,18 @@ export default function NavigationBar() {
         </div>
 
         {/* Mobile Navigation Drawer */}
-        <div className="lg:hidden flex items-center justify-around py-2 border-t border-stone-800 text-xs">
+        <div className="md:hidden flex items-center justify-between py-2 border-t border-stone-800/80 text-xs">
           <button
             onClick={() => setCurrentView('landing')}
             className={`px-2 py-1 rounded ${currentView === 'landing' ? 'text-amber-400 font-bold' : 'text-stone-400'}`}
           >
-            Overview
+            Story
           </button>
           <button
             onClick={() => setCurrentView('elderly')}
-            className={`px-2 py-1 rounded ${currentView === 'elderly' ? 'text-rose-400 font-bold' : 'text-stone-400'}`}
+            className="px-2 py-1 rounded text-stone-400"
           >
-            Aita Mode
+            Patient Feed
           </button>
           <button
             onClick={() => setCurrentView('caregiver')}

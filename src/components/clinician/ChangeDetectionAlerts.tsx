@@ -14,7 +14,7 @@ export default function ChangeDetectionAlerts() {
           </h3>
         </div>
         <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-700/50">
-          Algorithmic Telemetry Surveillance
+          Supportive Monitoring
         </span>
       </div>
 
@@ -30,10 +30,10 @@ export default function ChangeDetectionAlerts() {
           </span>
         </div>
         <p className="text-stone-300 leading-relaxed">
-          A persistent change in orientation response duration has been observed over the preceding 14-day window (average response shifted from 2.6s to 3.8s). Semantic language and personal memory recall remain exceptionally stable.
+          A persistent change in orientation response duration has been observed over the preceding 14-day demo window (average response shifted from 2.6s to 3.8s). Language and personal memory activities remain steady in this sample data.
         </p>
         <div className="p-2.5 rounded-xl bg-stone-900/60 border border-amber-800/40 text-amber-300 font-medium">
-          Clinical Guidance: Consider routine professional assessment during next Tezpur outreach clinic. Recommend maintaining bounded morning reminiscence activities.
+          Review recommended: consider professional assessment if this pattern persists in real sessions. Continue calm, bounded reminiscence activities with caregiver support.
         </div>
       </div>
 
@@ -49,12 +49,12 @@ export default function ChangeDetectionAlerts() {
           </span>
         </div>
         <p className="text-stone-300 leading-relaxed">
-          Photo-based recall involving sister Minati and traditional Assamese handloom crafts continues to demonstrate low hesitation (&lt; 2.2s) and high positive engagement.
+          Photo-based recall involving sister Minati and traditional Assamese handloom crafts shows low hesitation in this demo dataset and positive engagement.
         </p>
       </div>
 
       <p className="text-[10px] text-stone-400 italic">
-        * Ethical Medical Guardrail: SmritiSetu does not provide clinical diagnoses. Telemetry alerts are intended for supportive clinical awareness and early lifestyle adaptation.
+        * Ethical guardrail: SmritiSetu does not provide clinical diagnoses. Telemetry alerts are intended for supportive awareness and timely professional review.
       </p>
     </div>
   );

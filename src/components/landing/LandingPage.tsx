@@ -84,7 +84,7 @@ export default function LandingPage() {
             </span>
             <span className="flex items-center">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 mr-1.5" />
-              100% Offline Resilience
+              Offline-Ready Core Flow
             </span>
             <span className="flex items-center">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 mr-1.5" />
@@ -183,7 +183,7 @@ export default function LandingPage() {
               Why Existing Digital Cognitive Apps Fail Indian Seniors
             </h2>
             <p className="text-stone-300 text-sm sm:text-base leading-relaxed font-light">
-              Over 8.8 million seniors in India will live with dementia by 2036. Yet digital health tools remain predominantly Western, English-only, and engineered around stressful speed-tests, complex menus, and competitive leaderboards that trigger cognitive agitation in elderly users.
+              India faces a rapidly ageing population and rising dementia-care needs. Many digital cognitive tools are still too generic, too language-limited, or too dependent on constant connectivity for elderly users in rural North-East India.
             </p>
           </div>
 
@@ -191,7 +191,7 @@ export default function LandingPage() {
             <div className="p-5 rounded-2xl bg-stone-800/60 border border-stone-700/60">
               <h3 className="font-bold text-rose-300 text-base mb-2">Cultural & Linguistic Alienation</h3>
               <p className="text-xs text-stone-400 leading-relaxed">
-                Generic games asking to match Western objects or English vocabulary cause acute distress and disorientation for elderly citizens in Assam, Meghalaya, or Mizoram.
+                Generic games built around unfamiliar objects or English-only instructions can feel confusing and less meaningful for elderly citizens in Assam, Meghalaya, Mizoram, and other NER communities.
               </p>
             </div>
 
@@ -205,7 +205,7 @@ export default function LandingPage() {
             <div className="p-5 rounded-2xl bg-stone-800/60 border border-stone-700/60">
               <h3 className="font-bold text-teal-300 text-base mb-2">Unreliable Rural Connectivity</h3>
               <p className="text-xs text-stone-400 leading-relaxed">
-                Most modern SaaS apps crash without constant cloud access. North-Eastern hill topography demands an offline-first architecture that functions seamlessly during internet blackouts.
+                Many apps assume reliable cloud access. North-Eastern hill and rural deployments need offline-first patterns that preserve the core activity flow during connectivity gaps.
               </p>
             </div>
           </div>
@@ -441,17 +441,17 @@ export default function LandingPage() {
               </tr>
               <tr className="hover:bg-stone-850">
                 <td className="py-3.5 px-5 font-semibold text-stone-100">NER Regional Localization</td>
-                <td className="py-3.5 px-5 text-amber-300 font-bold">Native Assamese, Bodo, Hindi</td>
-                <td className="py-3.5 px-5 text-rose-400">English / Western Only</td>
-                <td className="py-3.5 px-5 text-rose-400">English Only</td>
+                <td className="py-3.5 px-5 text-amber-300 font-bold">English, Hindi, Assamese prototype with expandable NER language architecture</td>
+                <td className="py-3.5 px-5 text-stone-400">Often less localized for NER use cases</td>
+                <td className="py-3.5 px-5 text-stone-400">Varies by product and market</td>
                 <td className="py-3.5 px-5 text-stone-400">Generic Translations</td>
               </tr>
               <tr className="hover:bg-stone-850">
                 <td className="py-3.5 px-5 font-semibold text-stone-100">Offline-First Resilience</td>
-                <td className="py-3.5 px-5 text-amber-300 font-bold">100% Offline with Sync Queue</td>
-                <td className="py-3.5 px-5 text-rose-400">Requires Continuous Net</td>
-                <td className="py-3.5 px-5 text-rose-400">Online Cloud Only</td>
-                <td className="py-3.5 px-5 text-rose-400">Online Only</td>
+                <td className="py-3.5 px-5 text-amber-300 font-bold">Offline-ready core activities with sync queue</td>
+                <td className="py-3.5 px-5 text-stone-400">Connectivity needs vary</td>
+                <td className="py-3.5 px-5 text-stone-400">Connectivity needs vary</td>
+                <td className="py-3.5 px-5 text-stone-400">Often online-dependent</td>
               </tr>
               <tr className="hover:bg-stone-850">
                 <td className="py-3.5 px-5 font-semibold text-stone-100">Intergenerational Bridge</td>
@@ -463,9 +463,9 @@ export default function LandingPage() {
               <tr className="hover:bg-stone-850">
                 <td className="py-3.5 px-5 font-semibold text-stone-100">Medical Safety & Ethics</td>
                 <td className="py-3.5 px-5 text-amber-300 font-bold">Strict Non-Diagnostic Guardrails</td>
-                <td className="py-3.5 px-5 text-stone-400">Vague IQ Marketing</td>
-                <td className="py-3.5 px-5 text-stone-400">Clinical Focus</td>
-                <td className="py-3.5 px-5 text-rose-400">Unmoderated Ads</td>
+                <td className="py-3.5 px-5 text-stone-400">Wellness or training framing</td>
+                <td className="py-3.5 px-5 text-stone-400">Clinical or rehabilitation framing</td>
+                <td className="py-3.5 px-5 text-stone-400">Varies widely</td>
               </tr>
             </tbody>
           </table>

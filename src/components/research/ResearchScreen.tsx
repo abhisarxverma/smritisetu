@@ -42,26 +42,26 @@ export default function ResearchScreen() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-6 rounded-2xl bg-stone-900 border border-stone-800">
-            <span className="text-3xl font-mono font-bold text-rose-400">8.8 Million</span>
+            <span className="text-3xl font-mono font-bold text-rose-400">Growing Need</span>
             <h3 className="font-bold text-stone-200 text-sm mt-1 mb-2">Projected Dementia Cases by 2036</h3>
             <p className="text-xs text-stone-400 leading-relaxed">
-              According to the Longitudinal Ageing Study in India (LASI) and the Dementia India Report, dementia prevalence among Indians aged 60+ is ~7.4%, growing exponentially with demographic ageing.
+              India faces a rapidly ageing population and increasing dementia-care needs. This prototype avoids diagnosis and focuses on supportive engagement, family visibility, and structured observations.
             </p>
           </div>
 
           <div className="p-6 rounded-2xl bg-stone-900 border border-stone-800">
-            <span className="text-3xl font-mono font-bold text-amber-400">&lt; 0.1%</span>
+            <span className="text-3xl font-mono font-bold text-amber-400">Access Gap</span>
             <h3 className="font-bold text-stone-200 text-sm mt-1 mb-2">Geriatric Specialists in NER</h3>
             <p className="text-xs text-stone-400 leading-relaxed">
-              Tertiary memory clinics in the North Eastern Region are concentrated exclusively in a few cities (Guwahati, Dibrugarh, Shillong), leaving remote hill communities with virtually zero geriatric assessment.
+              Specialist services are easier to reach in larger cities than in remote hill and rural communities, so the prototype emphasizes offline operation and health-worker-readable summaries.
             </p>
           </div>
 
           <div className="p-6 rounded-2xl bg-stone-900 border border-stone-800">
-            <span className="text-3xl font-mono font-bold text-teal-400">82%</span>
+            <span className="text-3xl font-mono font-bold text-teal-400">Care Burden</span>
             <h3 className="font-bold text-stone-200 text-sm mt-1 mb-2">Informal Female Caregiver Burden</h3>
             <p className="text-xs text-stone-400 leading-relaxed">
-              Over four-fifths of dementia care in India is provided by daughters and daughters-in-law without structured respite, psychological tools, or objective tracking metrics.
+              Family caregivers, often women, carry much of day-to-day dementia support. The dashboard is designed to reduce uncertainty without replacing human care.
             </p>
           </div>
         </div>
@@ -177,7 +177,7 @@ export default function ResearchScreen() {
             <div className="p-4 rounded-2xl bg-stone-800/60 border border-stone-700">
               <h4 className="font-bold text-amber-300 text-sm mb-1">Ayushman Bharat Digital Mission (ABDM)</h4>
               <p className="text-stone-400">
-                Longitudinal cognitive performance telemetry is architected for export via FHIR-compliant electronic health records (EHR) linked with ABHA (Ayushman Bharat Health Account) IDs.
+                Future deployments can explore consent-based health-record sharing patterns aligned with ABDM principles. This prototype does not create or link real ABHA records.
               </p>
             </div>
             <div className="p-4 rounded-2xl bg-stone-800/60 border border-stone-700">
